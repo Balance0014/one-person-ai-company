@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 280" width="860" height="280" role="img" aria-label="周额度条：四块业务各有预算，最多用到 90%，最后 10% 只留给定时产出。下方：每个定时任务前后留出缓冲，不做重活。">
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
+  <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8182"/></marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f6f8fa"/><line x1="0" y1="0" x2="0" y2="6" stroke="#d0d7de" stroke-width="3"/></pattern>
+  <style>text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;fill:#1f2328} .s{font-size:13px;fill:#57606a} .b{font-size:15px;font-weight:600} .t{font-size:14px} .l{font-size:12.5px;fill:#57606a} .h{stroke:#ffffff;stroke-width:5px;stroke-linejoin:round;paint-order:stroke} .e{stroke:#57606a;stroke-width:1.6;fill:none} .d{stroke:#8c959f;stroke-width:1.4;fill:none;stroke-dasharray:5 4} .x{stroke:#ff8182;stroke-width:1.6;fill:none;stroke-dasharray:5 4}</style>
+</defs>
+<rect x="1" y="1" width="858" height="278" rx="16" fill="#ffffff" stroke="#d0d7de"/>
+<text class="b" x="40" y="52" text-anchor="start">每周额度</text>
+<rect x="40" y="70" width="195" height="44" fill="#b6e3ff" stroke="#ffffff" stroke-width="2"/>
+<text class="t" x="137.5" y="97" text-anchor="middle" style="font-size:13px">内容</text>
+<rect x="235" y="70" width="195" height="44" fill="#fff8c5" stroke="#ffffff" stroke-width="2"/>
+<text class="t" x="332.5" y="97" text-anchor="middle" style="font-size:13px">研究</text>
+<rect x="430" y="70" width="156" height="44" fill="#ffd8b5" stroke="#ffffff" stroke-width="2"/>
+<text class="t" x="508.0" y="97" text-anchor="middle" style="font-size:13px">产品</text>
+<rect x="586" y="70" width="156" height="44" fill="#d8b9ff" stroke="#ffffff" stroke-width="2"/>
+<text class="t" x="664.0" y="97" text-anchor="middle" style="font-size:13px">基础设施</text>
+<rect x="742" y="70" width="78" height="44" fill="#dafbe1" stroke="#4ac26b" stroke-width="1.4"/>
+<text class="l" x="820" y="58" text-anchor="end">最后 10%：只给定时产出</text>
+<path class="x" d="M742,62 L742,130"/>
+<text class="l" x="736.0" y="146" text-anchor="end">90%：不再开新活</text>
+<text class="l" x="40" y="146" text-anchor="start">0%</text>
+<text class="l" x="820" y="146" text-anchor="end">100%</text>
+<line x1="40" y1="206" x2="820" y2="206" stroke="#d0d7de" stroke-width="2"/>
+<rect x="130" y="186" width="100" height="40" fill="url(#hatch)" stroke="#d0d7de"/>
+<circle cx="180" cy="206" r="7" fill="#1f2328"/>
+<rect x="380" y="186" width="100" height="40" fill="url(#hatch)" stroke="#d0d7de"/>
+<circle cx="430" cy="206" r="7" fill="#1f2328"/>
+<rect x="640" y="186" width="100" height="40" fill="url(#hatch)" stroke="#d0d7de"/>
+<circle cx="690" cy="206" r="7" fill="#1f2328"/>
+<text class="s" x="40" y="176" text-anchor="start">一天之内</text>
+<text class="l" x="430" y="250" text-anchor="middle">● 定时任务   ▨ 缓冲区：不做重活；同时最多两个会话干重活</text>
+</svg>

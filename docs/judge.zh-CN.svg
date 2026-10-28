@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" width="860" height="400" role="img" aria-label="对账脚本跑在 AI 账号之外的小服务器上，拿排班表和发送方的记录对账，直接报警给我。下方：停摆 18 天里的 17 份早报，共 210 班没到。">
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
+  <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8182"/></marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f6f8fa"/><line x1="0" y1="0" x2="0" y2="6" stroke="#d0d7de" stroke-width="3"/></pattern>
+  <style>text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;fill:#1f2328} .s{font-size:13px;fill:#57606a} .b{font-size:15px;font-weight:600} .t{font-size:14px} .l{font-size:12.5px;fill:#57606a} .h{stroke:#ffffff;stroke-width:5px;stroke-linejoin:round;paint-order:stroke} .e{stroke:#57606a;stroke-width:1.6;fill:none} .d{stroke:#8c959f;stroke-width:1.4;fill:none;stroke-dasharray:5 4} .x{stroke:#ff8182;stroke-width:1.6;fill:none;stroke-dasharray:5 4}</style>
+</defs>
+<rect x="1" y="1" width="858" height="398" rx="16" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="24" y="40" width="380" height="230" rx="12" fill="#fff8f8" stroke="#ff8182" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text class="b" x="40" y="64" text-anchor="start">AI 账号</text>
+<rect x="48" y="84" width="150" height="50" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.4"/>
+<text class="t" x="123" y="114" text-anchor="middle">agent</text>
+<rect x="226" y="84" width="150" height="50" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.4"/>
+<text class="t" x="301" y="114" text-anchor="middle">定时任务</text>
+<rect x="137" y="176" width="150" height="50" rx="8" fill="#fff8c5" stroke="#d4a72c" stroke-width="1.4"/>
+<text class="b" x="212" y="200" text-anchor="middle">发送方</text>
+<text class="s" x="212" y="217" text-anchor="middle">每发一次记一笔</text>
+<path class="e" d="M301,134 L240,174" marker-end="url(#a)"/>
+<rect x="456" y="40" width="380" height="230" rx="12" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.2"/>
+<text class="b" x="472" y="64" text-anchor="start">小服务器 · 不调用模型</text>
+<rect x="480" y="84" width="150" height="50" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.4"/>
+<text class="t" x="555" y="114" text-anchor="middle" style="font-size:12.5px">deliveries</text>
+<rect x="662" y="84" width="150" height="50" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.4"/>
+<text class="t" x="737" y="114" text-anchor="middle" style="font-size:12.5px">EXPECTATIONS</text>
+<rect x="571" y="176" width="150" height="50" rx="8" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<text class="b" x="646" y="200" text-anchor="middle">对账脚本</text>
+<text class="s" x="646" y="217" text-anchor="middle">每天两次</text>
+<path class="e" d="M555,134 L620,174" marker-end="url(#a)"/>
+<path class="e" d="M737,134 L672,174" marker-end="url(#a)"/>
+<path class="d" d="M287,201 L420,201 Q440,201 440,181 L440,129 Q440,109 460,109 L478,109" marker-end="url(#a)"/>
+<text class="l" x="360" y="192" text-anchor="middle">送达记录</text>
+<rect x="571" y="300" width="150" height="40" rx="20" fill="#1f2328" stroke="#1f2328" stroke-width="1.4"/>
+<text class="t" x="646" y="325" text-anchor="middle" style="font-size:13.5px;fill:#ffffff;font-weight:600">报警 → 我</text>
+<path class="e" d="M646,226 L646,298" marker-end="url(#a)"/>
+<text class="b" x="40" y="318" text-anchor="start" style="font-size:13.5px">9 月 26 日 – 10 月 13 日：AI 账号停了，对账脚本没停。</text>
+<rect x="40" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="68" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="96" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="124" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="152" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="180" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="208" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="236" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="264" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="292" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="320" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="348" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="376" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="404" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="432" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="460" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<rect x="488" y="334" width="20" height="26" rx="4" fill="#ffebe9" stroke="#ff8182" stroke-width="1.2"/>
+<text class="l" x="40" y="384" text-anchor="start">17 份早报 · 合计 210 班没到 · 每天 11 到 13 班</text>
+</svg>

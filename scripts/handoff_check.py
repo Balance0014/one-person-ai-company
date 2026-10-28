@@ -6,7 +6,7 @@ Each project keeps one Markdown file in handoff_dir. This script checks:
   1. The first line says when it was last updated:  "Updated YYYY-MM-DD HH:MM"
      (in the timezone set by timezone_offset_hours).
   2. All seven sections exist (exact headings below).
-  3. Optional --repo PATH: the record is not older than the latest commit in
+  3. Optional --record NAME --repo PATH: that record is not older than the latest commit in
      that repo by more than handoff_stale_hours (default 15 minutes; the stamp
      only has minute precision). Work that is committed but
      not written down is exactly what gets lost.
@@ -72,13 +72,20 @@ def main(argv=None):
     p = argparse.ArgumentParser(description="Check handoff records")
     p.add_argument("--config")
     p.add_argument("--dir", help="override handoff_dir from the config")
-    p.add_argument("--repo", help="compare each record against this repo's latest commit")
+    p.add_argument("--record", help="check only this record (file name in handoff_dir)")
+    p.add_argument("--repo", help="also compare the record against this repo's latest commit")
     args = p.parse_args(argv)
     cfg = opsconfig.load(args.config)
     folder = args.dir or opsconfig.resolve(cfg, "handoff_dir")
     records = sorted(glob.glob(os.path.join(folder, "*.md")))
+    if args.record:
+        records = [r for r in records if os.path.basename(r) == args.record]
     if not records:
-        print(f"no handoff records in {folder}")
+        print(f"no handoff records in {folder}" + (f" named {args.record}" if args.record else ""))
+        return 1
+    if args.repo and len(records) > 1:
+        # One repo's latest commit says nothing about the other projects' records.
+        print("--repo needs --record: compare one project's record with that project's repo")
         return 1
     failed = 0
     for path in records:

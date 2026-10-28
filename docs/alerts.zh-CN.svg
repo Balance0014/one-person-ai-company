@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 330" width="860" height="330" role="img" aria-label="报警上线前要答三个问题：有没有人真受影响、拿过去 7 天回放过没有、有没有点名一个能处理的人。示例报警：问题、影响、归谁。">
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
+  <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8182"/></marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f6f8fa"/><line x1="0" y1="0" x2="0" y2="6" stroke="#d0d7de" stroke-width="3"/></pattern>
+  <style>text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;fill:#1f2328} .s{font-size:13px;fill:#57606a} .b{font-size:15px;font-weight:600} .t{font-size:14px} .l{font-size:12.5px;fill:#57606a} .h{stroke:#ffffff;stroke-width:5px;stroke-linejoin:round;paint-order:stroke} .e{stroke:#57606a;stroke-width:1.6;fill:none} .d{stroke:#8c959f;stroke-width:1.4;fill:none;stroke-dasharray:5 4} .x{stroke:#ff8182;stroke-width:1.6;fill:none;stroke-dasharray:5 4}</style>
+</defs>
+<rect x="1" y="1" width="858" height="328" rx="16" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="24" y="120" width="120" height="50" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.4"/>
+<text class="b" x="84" y="150" text-anchor="middle">新报警</text>
+<rect x="190" y="50" width="250" height="50" rx="8" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<text class="t" x="315" y="80" text-anchor="middle" style="font-size:13.5px">1 · 有人真受影响吗？</text>
+<rect x="190" y="120" width="250" height="50" rx="8" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<text class="t" x="315" y="150" text-anchor="middle" style="font-size:13.5px">2 · 拿过去 7 天回放过吗？</text>
+<rect x="190" y="190" width="250" height="50" rx="8" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<text class="t" x="315" y="220" text-anchor="middle" style="font-size:13.5px">3 · 点名了能处理的人吗？</text>
+<path class="e" d="M144,145 L188,145" marker-end="url(#a)"/>
+<path class="e" d="M315,100 L315,118" marker-end="url(#a)"/>
+<path class="e" d="M315,170 L315,188" marker-end="url(#a)"/>
+<path class="e" d="M440,215 L478,215" marker-end="url(#a)"/>
+<rect x="480" y="40" width="352" height="230" rx="10" fill="#ffffff" stroke="#ff8182" stroke-width="1.4"/>
+<rect x="480" y="40" width="352" height="34" rx="10" fill="#ffebe9"/>
+<text class="b" x="496" y="63" text-anchor="start">早间汇总</text>
+<text class="s" x="496" y="104" text-anchor="start" style="font-weight:600">问题</text>
+<text class="t" x="496" y="125" text-anchor="start">11 份定时简报没到。</text>
+<text class="s" x="496" y="156" text-anchor="start" style="font-weight:600">影响</text>
+<text class="t" x="496" y="177" text-anchor="start">今天没有简报。</text>
+<text class="s" x="496" y="208" text-anchor="start" style="font-weight:600">归谁</text>
+<text class="t" x="496" y="229" text-anchor="start">你：AI 套餐过期了，去续费。</text>
+<text class="l" x="430" y="300" text-anchor="middle">和上次一模一样的报警：20 小时内不再发。变严重或范围变大：马上发。</text>
+<text class="l" x="430" y="320" text-anchor="middle">问题消失后，发一句「✅ 已恢复」。</text>
+</svg>

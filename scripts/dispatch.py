@@ -131,7 +131,9 @@ def main(argv=None):
 
     if args.cmd == "done":
         item = find(ledger, args.id)
-        if item["status"] not in ("new", "acked"):
+        if item["status"] == "new":
+            sys.exit(f"refused: {args.id} was never acknowledged; ack it with a plan first")
+        if item["status"] != "acked":
             sys.exit(f"{args.id} is already {item['status']}")
         evidence = {f: getattr(args, f).strip() for f in DONE_FIELDS}
         missing = [f for f, v in evidence.items() if not v]

@@ -54,11 +54,19 @@ class DispatchTest(Workspace):
 
     def test_done_refused_without_five_items(self):
         task = run("dispatch.py", "add", "--to", "content", "--title", "x", cwd=self.dir).stdout.strip()
+        run("dispatch.py", "ack", task, "--plan", "look at the logs", cwd=self.dir)
         r = run("dispatch.py", "done", task, "--root-cause", "found it", cwd=self.dir)
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("prevention", r.stderr)
         item = json.load(open(self.path("ops", "DISPATCH.json")))["items"][0]
-        self.assertEqual(item["status"], "new")
+        self.assertEqual(item["status"], "acked")
+
+    def test_done_refused_before_ack(self):
+        task = run("dispatch.py", "add", "--to", "content", "--title", "x", cwd=self.dir).stdout.strip()
+        r = run("dispatch.py", "done", task, "--root-cause", "a", "--prevention", "b", "--sweep", "c",
+                "--verification", "d", "--cleanup", "e", cwd=self.dir)
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("ack it with a plan first", r.stderr)
 
     def test_overdue_flags_unacknowledged_and_late(self):
         run("dispatch.py", "add", "--to", "a", "--title", "never acked", cwd=self.dir, now="2026-10-01T00:00:00Z")
@@ -122,13 +130,20 @@ class HandoffTest(Workspace):
         from datetime import datetime, timezone
         stamp = datetime.fromtimestamp(ct - 30 * 60, timezone.utc).strftime("%Y-%m-%d %H:%M")
         self.write("a.md", self.GOOD.replace("2026-10-28 09:00", stamp))
-        r = run("handoff_check.py", "--repo", repo, cwd=self.dir)
+        r = run("handoff_check.py", "--record", "a.md", "--repo", repo, cwd=self.dir)
         self.assertEqual(r.returncode, 1)
         self.assertIn("stale", r.stdout)
 
         stamp = datetime.fromtimestamp(ct, timezone.utc).strftime("%Y-%m-%d %H:%M")
         self.write("a.md", self.GOOD.replace("2026-10-28 09:00", stamp))
-        self.assertEqual(run("handoff_check.py", "--repo", repo, cwd=self.dir).returncode, 0)
+        self.assertEqual(run("handoff_check.py", "--record", "a.md", "--repo", repo, cwd=self.dir).returncode, 0)
+
+    def test_repo_without_record_is_refused_when_several_records(self):
+        self.write("a.md", self.GOOD)
+        self.write("b.md", self.GOOD)
+        r = run("handoff_check.py", "--repo", ".", cwd=self.dir)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("--repo needs --record", r.stdout)
 
 
 class ReconcileTest(Workspace):

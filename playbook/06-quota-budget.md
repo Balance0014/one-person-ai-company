@@ -1,19 +1,27 @@
 # 6 · Quota budgets
 
-From September 19 to 22, 2026, a burst of development used up my account's weekly limit. My scheduled AI jobs were rejected at startup, and the morning briefs stopped for four days. Those jobs and my development sessions draw from the same pool, and nothing protected the jobs.
+**English** · [中文](zh-CN/06-quota-budget.md)
 
-The next day brought the short-term version of the same problem: nine sessions doing heavy work at once took the five-hour limit from 25% to 74% in half an hour.
+From September 19 to 22, 2026, a few days of heavy development burned through my weekly limit. My scheduled AI jobs failed at launch with a usage-limit error, and the morning briefs stopped for four days. It was the second quota outage that month (the first is in [chapter 4](04-one-judge-per-question.md)). Those jobs and my development sessions draw from the same pool, and nothing protected the jobs.
+
+The next day brought the short-term version: nine sessions doing heavy work at once took the five-hour limit from 25% to 74% in half an hour.
+
+<p align="center"><img src="../docs/quota.svg" alt="Weekly quota bar: four area budgets up to 90 percent, the last 10 percent reserved for scheduled deliveries. Below: heavy work stays out of the buffer around each scheduled run." width="760"></p>
 
 ## The rules
 
-- **Scheduled deliveries come first.** At 90% of the weekly limit, no session starts new work. The last 10% keeps scheduled jobs running.
-- **Each area gets a weekly budget** ([`templates/QUOTA-BUDGET.json`](../templates/QUOTA-BUDGET.json)). An area over budget stops starting new work until the week resets or HQ grants more. Without per-area budgets one area can stop everyone: on October 22, one area burned 63 of the 78 percentage points of weekly quota used in two days.
-- **At most two sessions do heavy work at a time.** Heavy means sub-agents, large scans, and big refactors. Reading results and replying to messages don't count.
-- **Keep heavy work away from scheduled run times.** Leave a buffer before and after each job.
-- **Never re-run a missed scheduled job automatically.** If a report didn't go out, a person decides whether to send it late. Automatic re-runs pile up during an outage and flood everyone when it ends.
+- Scheduled deliveries come first. At 90% of the weekly limit, no session starts new work, and the last 10% keeps scheduled jobs running.
+- Each area gets a weekly budget ([`templates/QUOTA-BUDGET.json`](../templates/QUOTA-BUDGET.json)). An area over budget stops starting new work until the week resets or HQ grants more. Without per-area budgets one area can stop everyone: on October 21 and 22 the account used 78 points of its weekly quota, and 63 of them came from one area.
+- At most two sessions do heavy work at a time. Heavy means sub-agents, large scans, and big refactors. Reading results and replying to messages don't count.
+- Heavy work stays away from scheduled run times, with a buffer before and after each job.
+- A missed scheduled job is never re-run automatically. If a report didn't go out, a person decides whether to send it late. Automatic re-runs pile up during an outage and flood everyone when it ends.
 
 ## Enforcing it
 
-The budget file is just data. Enforcement belongs in your agent's pre-tool hook: read current usage, map the session's working directory to an area, and block file edits and sub-agents when that area is over budget.
+The budget file is just data. Enforcement belongs in your agent's pre-tool hook: map the session's working directory to an area, compare that area's usage with its budget, and block file edits and sub-agents when it's over. Claude Code doesn't give hooks your account usage, so something has to write it to a file first. I keep the latest reading in one, and the hook blocks if that reading is more than six hours old.
 
 If you add an override for "this protects a scheduled delivery", make it expire within hours. Mine used to last until the end of the day, so one session's one-line note let every session past the gate until then.
+
+## Since then
+
+Per-area budgets went in on October 22. In the six days since, the reconciler hasn't reported a single missed delivery. That's too short to call it fixed.

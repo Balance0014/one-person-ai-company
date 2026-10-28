@@ -13,7 +13,7 @@ Updated 2026-01-01 09:00 · Read first: README.md → docs/rules.md → this fil
 - What is half-done right now, and where it stands.
 
 ## Not done
-- Agreed work that has not started. Debts you owe.
+- Work you've committed to that hasn't started yet.
 
 ## Next
 1. The very next concrete action, specific enough to start without asking anyone.

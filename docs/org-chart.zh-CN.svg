@@ -1,18 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" width="860" height="520" role="img" aria-label="组织架构：我在最上面，下面是总部、四位负责人（内容、研究、产品、基础设施）和各自的项目。我拍板的事和坏消息走总部，产品的事直接找负责人。总部只给负责人派活，能读每个项目的原始记录。">
 <defs>
   <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
-  <style>text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;fill:#1f2328} .s{font-size:13px;fill:#57606a} .b{font-size:15px;font-weight:600} .l{font-size:12.5px;fill:#57606a} .h{stroke:#ffffff;stroke-width:5px;stroke-linejoin:round;paint-order:stroke} .e{stroke:#57606a;stroke-width:1.6;fill:none} .d{stroke:#8c959f;stroke-width:1.4;fill:none;stroke-dasharray:5 4}</style>
+  <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8182"/></marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f6f8fa"/><line x1="0" y1="0" x2="0" y2="6" stroke="#d0d7de" stroke-width="3"/></pattern>
+  <style>text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;fill:#1f2328} .s{font-size:13px;fill:#57606a} .b{font-size:15px;font-weight:600} .t{font-size:14px} .l{font-size:12.5px;fill:#57606a} .h{stroke:#ffffff;stroke-width:5px;stroke-linejoin:round;paint-order:stroke} .e{stroke:#57606a;stroke-width:1.6;fill:none} .d{stroke:#8c959f;stroke-width:1.4;fill:none;stroke-dasharray:5 4} .x{stroke:#ff8182;stroke-width:1.6;fill:none;stroke-dasharray:5 4}</style>
 </defs>
 <rect x="1" y="1" width="858" height="518" rx="16" fill="#ffffff" stroke="#d0d7de"/>
-<path class="e" d="M430,86 L430,133" marker-start="url(#a)" marker-end="url(#a)"/>
+<path class="e" d="M430,86 L430,133" marker-end="url(#a)" marker-start="url(#a)"/>
 <text class="l" x="420" y="114" text-anchor="end">我拍板的事 · 坏消息只走一个出口</text>
-<path class="e" d="M512,62 L770,62 Q800,62 800,92 L800,253" marker-start="url(#a)" marker-end="url(#a)"/>
+<path class="e" d="M512,62 L770,62 Q800,62 800,92 L800,253" marker-end="url(#a)" marker-start="url(#a)"/>
 <text class="l" x="790" y="52" text-anchor="end">产品的事，直接对接</text>
 <path class="e" d="M430,207 L130,268" marker-end="url(#a)"/>
 <path class="e" d="M430,207 L330,268" marker-end="url(#a)"/>
 <path class="e" d="M430,207 L530,268" marker-end="url(#a)"/>
 <path class="e" d="M430,207 L730,268" marker-end="url(#a)"/>
-<text class="l h" x="586" y="229">派活走账本</text>
+<text class="l h" x="586" y="229" text-anchor="start">派活走账本</text>
 <path class="e" d="M130,322 L70,388" marker-end="url(#a)"/>
 <path class="e" d="M130,322 L190,388" marker-end="url(#a)"/>
 <path class="e" d="M330,322 L330,388" marker-end="url(#a)"/>
@@ -27,9 +29,9 @@
 <path class="d" d="M590,478 L590,432" marker-end="url(#a)"/>
 <path class="d" d="M730,478 L730,432" marker-end="url(#a)"/>
 <text class="l" x="430" y="503" text-anchor="middle">总部能读每个项目的原始记录，但只给负责人派活</text>
-<rect x="348" y="40" width="164" height="46" rx="23" fill="#1f2328"/>
-<text x="430" y="61" text-anchor="middle" style="font-size:16px;font-weight:700;fill:#ffffff">我</text>
-<text x="430" y="78" text-anchor="middle" style="font-size:11.5px;fill:#d0d7de">拍板 · 花钱 · 对外发布</text>
+<rect x="348" y="40" width="164" height="46" rx="23" fill="#1f2328" stroke="#1f2328" stroke-width="1.4"/>
+<text class="t" x="430" y="61" text-anchor="middle" style="font-size:16px;font-weight:700;fill:#ffffff">我</text>
+<text class="t" x="430" y="78" text-anchor="middle" style="font-size:11.5px;fill:#d0d7de">拍板 · 花钱 · 对外发布</text>
 <rect x="280" y="135" width="300" height="72" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.4"/>
 <text class="b" x="430" y="163" text-anchor="middle">总部</text>
 <text class="s" x="430" y="185" text-anchor="middle">通用规矩 · 账本 · 额度</text>
@@ -44,15 +46,15 @@
 <rect x="645" y="270" width="170" height="50" rx="8" fill="#fff8c5" stroke="#d4a72c" stroke-width="1.4"/>
 <text class="b" x="730" y="300" text-anchor="middle">负责人 · 基础设施</text>
 <rect x="16" y="390" width="108" height="42" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.4"/>
-<text x="70" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
+<text class="t" x="70" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
 <rect x="136" y="390" width="108" height="42" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.4"/>
-<text x="190" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
+<text class="t" x="190" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
 <rect x="276" y="390" width="108" height="42" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.4"/>
-<text x="330" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
+<text class="t" x="330" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
 <rect x="416" y="390" width="108" height="42" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.4"/>
-<text x="470" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
+<text class="t" x="470" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
 <rect x="536" y="390" width="108" height="42" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.4"/>
-<text x="590" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
+<text class="t" x="590" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
 <rect x="676" y="390" width="108" height="42" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.4"/>
-<text x="730" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
+<text class="t" x="730" y="416" text-anchor="middle" style="font-size:13.5px">项目</text>
 </svg>

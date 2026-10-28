@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" width="860" height="260" role="img" aria-label="一件活要做完五步才算完成：根因、防复发、同类扫描、真实验证、收尾清理。止血只能让活继续开着。">
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
+  <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8182"/></marker>
+  <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f6f8fa"/><line x1="0" y1="0" x2="0" y2="6" stroke="#d0d7de" stroke-width="3"/></pattern>
+  <style>text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;fill:#1f2328} .s{font-size:13px;fill:#57606a} .b{font-size:15px;font-weight:600} .t{font-size:14px} .l{font-size:12.5px;fill:#57606a} .h{stroke:#ffffff;stroke-width:5px;stroke-linejoin:round;paint-order:stroke} .e{stroke:#57606a;stroke-width:1.6;fill:none} .d{stroke:#8c959f;stroke-width:1.4;fill:none;stroke-dasharray:5 4} .x{stroke:#ff8182;stroke-width:1.6;fill:none;stroke-dasharray:5 4}</style>
+</defs>
+<rect x="1" y="1" width="858" height="258" rx="16" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="30" y="60" width="132" height="64" rx="8" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<text class="b" x="96.0" y="87" text-anchor="middle" style="font-size:14px">1 · 根因</text>
+<text class="s" x="96.0" y="108" text-anchor="middle" style="font-size:12px">哪一层错了、为什么</text>
+<path class="e" d="M162,92 L174,92" marker-end="url(#a)"/>
+<rect x="176" y="60" width="132" height="64" rx="8" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<text class="b" x="242.0" y="87" text-anchor="middle" style="font-size:14px">2 · 防复发</text>
+<text class="s" x="242.0" y="108" text-anchor="middle" style="font-size:12px">测试或机器检查</text>
+<path class="e" d="M308,92 L320,92" marker-end="url(#a)"/>
+<rect x="322" y="60" width="132" height="64" rx="8" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<text class="b" x="388.0" y="87" text-anchor="middle" style="font-size:14px">3 · 同类扫描</text>
+<text class="s" x="388.0" y="108" text-anchor="middle" style="font-size:12px">别处还有没有</text>
+<path class="e" d="M454,92 L466,92" marker-end="url(#a)"/>
+<rect x="468" y="60" width="132" height="64" rx="8" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<text class="b" x="534.0" y="87" text-anchor="middle" style="font-size:14px">4 · 真实验证</text>
+<text class="s" x="534.0" y="108" text-anchor="middle" style="font-size:12px">真跑、端到端</text>
+<path class="e" d="M600,92 L612,92" marker-end="url(#a)"/>
+<rect x="614" y="60" width="132" height="64" rx="8" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<text class="b" x="680.0" y="87" text-anchor="middle" style="font-size:14px">5 · 收尾清理</text>
+<text class="s" x="680.0" y="108" text-anchor="middle" style="font-size:12px">说得出删了什么</text>
+<path class="e" d="M746,92 L758,92" marker-end="url(#a)"/>
+<rect x="760" y="60" width="70" height="64" rx="8" fill="#dafbe1" stroke="#4ac26b" stroke-width="1.4"/>
+<text class="b" x="795.0" y="98" text-anchor="middle">完成</text>
+<rect x="30" y="166" width="300" height="50" rx="8" fill="#fff8c5" stroke="#d4a72c" stroke-width="1.4"/>
+<text class="t" x="180" y="196" text-anchor="middle">止血：症状没了</text>
+<path class="e" d="M330,191 L438,191" marker-end="url(#a)"/>
+<rect x="440" y="166" width="390" height="50" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text class="t" x="635" y="196" text-anchor="middle">活继续开着，直到真正的修复上线</text>
+<text class="l" x="430" y="244" text-anchor="middle">每一步都要有证据：提交、测试名、日志或链接。</text>
+</svg>

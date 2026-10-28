@@ -1,11 +1,12 @@
 {
-  "_readme": "Weekly quota points per module (percent of the account's weekly limit). Scheduled deliveries come first: the last 10% is reserved for them. A module over budget stops starting new changes until the week resets or the head office grants more.",
+  "_readme": "Weekly quota points per area (percent of the account's weekly limit). Scheduled deliveries come first: the last 10% is reserved for them. An area over budget stops starting new work until the week resets or HQ grants more.",
   "week_starts": "monday 00:00",
   "reserve_for_scheduled_jobs": 10,
   "weekly_points": {
-    "content": 30,
-    "product": 35,
+    "content": 25,
     "research": 15,
-    "head-office": 10
+    "product": 35,
+    "infra": 5,
+    "hq": 10
   }
 }
