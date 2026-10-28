@@ -22,7 +22,7 @@ Every rule says which tier it's in on the day it's created:
 - Before changing a rule or a script, list everything downstream that reads it. After the change, check each one.
 - Keep always-loaded instruction files short. I cap mine at about 200 lines, because past that they get skimmed.
 
-Template: [`templates/ops/RULES-REGISTRY.json`](../templates/ops/RULES-REGISTRY.json). Its rules start as `advisory`, and each one's note says what to wire up before you promote it.
+Template: [`templates/ops/RULES-REGISTRY.json`](../templates/ops/RULES-REGISTRY.json). Its rules start as `advisory` (except R-01, which `dispatch.py` enforces itself), and each one's note says what to wire up before you promote it.
 
 ## Checking it
 

@@ -41,4 +41,4 @@ Run it somewhere that doesn't share a fate with your agents, like a small server
 
 ## Results so far
 
-Since September 16 my reconciler has run twice a day from its own server and sends its alerts directly, with no agent in between. It tracks 21 scheduled deliveries.
+Since September 16 the reconciler has sent its own alerts, with no agent in between. It checks 21 scheduled deliveries twice a day from its own server.

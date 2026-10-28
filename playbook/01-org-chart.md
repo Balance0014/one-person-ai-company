@@ -10,7 +10,7 @@ So I set the agents up like a small company with three layers.
 
 | Layer | Who | Owns |
 |---|---|---|
-| HQ | One coordinating agent session | Shared rules, the ledgers, quota, and the reconciler that answers "did it arrive?" The reconciler runs outside the AI account and is the one channel bad news reaches me through |
+| HQ | One coordinating agent session | Shared rules, the ledgers, quota, and the reconciler that answers "did it arrive?" The reconciler runs outside the AI account and is the only way bad news reaches me |
 | Leads | One agent per business area. I have four: content, research, product, and infrastructure | Their area's quality bar, their own checks, scheduling and assigning work |
 | Projects | One agent session per project | The work itself. They take direction from their lead |
 

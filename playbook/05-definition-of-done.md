@@ -2,7 +2,7 @@
 
 **English** · [中文](zh-CN/05-definition-of-done.md)
 
-One of my projects kept going quiet in the middle of tasks. The proposed fix was to wake every agent every 20 minutes. It ran for a day. The wake-ups ate about 30% of every session's usage, and the actual cause turned out to be a single tool that hung without anyone noticing.
+One of my projects kept going quiet in the middle of tasks. An agent's fix was to wake every agent every 20 minutes. It ran for a day. The wake-ups ate about 30% of every session's usage, and the actual cause turned out to be a single tool that hung without anyone noticing.
 
 By most agents' standards that fix was done, because the symptom went away. Agents call something fixed when they've tried it once and seen no error, and they report a stopgap as a fix. So I wrote down what done means.
 

@@ -28,7 +28,7 @@ To make an agent keep its record current, run the second form in that session's 
 python3 scripts/handoff_check.py --record content.md --repo . >&2 || exit 2
 ```
 
-The agent then can't end a turn while the repo has a commit more than 15 minutes newer than its record. Uncommitted work is still invisible to the check. If the agent can't update the record for some reason, Claude Code sets `stop_hook_active` on the next attempt; let it through then, or the hook loops.
+The agent then can't end a turn while the repo has a commit more than 15 minutes newer than its record. Uncommitted work is still invisible to the check. This one-liner blocks every time the check fails. Claude Code ends the turn after eight blocks in a row, so a record the agent can't fix won't trap it for good, but a small wrapper that reads `stop_hook_active` from the hook input and lets the second attempt through is cleaner.
 
 My first version of this check had a hole. It treated a record as fresh if it had been updated within two hours of the latest commit, so a session could write the record, keep working for another 90 minutes, and still pass. The check here allows 15 minutes, enough to stamp the record, commit, and push.
 

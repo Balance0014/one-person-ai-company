@@ -6,7 +6,7 @@
 
 I run a one-person company. The agents are 18 long-running Claude Code sessions, one per project or lead, and about 20 scheduled jobs that each run their own prompt. They write crypto and AI research briefs, draft posts for my social accounts, and build and monitor [GapMine](https://gapmine.com), a product I'm working on. Most of what they produce lands in a group chat I read every morning.
 
-This repo is the operating system I ended up with after things kept breaking: how the agents are organized, how work survives a cleared session, how I know what actually shipped, and which rules a machine enforces. It's eight short chapters, templates, four Python checks with no dependencies, and an agent skill that helps you set it up in your repo.
+This repo is the setup I ended up with: how the agents are organized, how work survives a cleared session, how I know what actually shipped, and which rules a machine enforces. It's eight short chapters, templates, four Python checks with no dependencies, and an agent skill that helps you set it up in your repo.
 
 [![CI](https://github.com/Balance0014/one-person-ai-company/actions/workflows/ci.yml/badge.svg)](https://github.com/Balance0014/one-person-ai-company/actions/workflows/ci.yml) ![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat) ![Python 3.9+ standard library](https://img.shields.io/badge/python-3.9%2B%20stdlib%20only-3776AB?style=flat)
 
@@ -14,7 +14,6 @@ This repo is the operating system I ended up with after things kept breaking: ho
 
 ## What broke first
 
-Everything in here was added after one of these happened:
 
 - An agent reported a task as done because it found no errors. Nothing had shipped.
 - A session hit the weekly limit mid-task, and everything it knew disappeared with the chat.
@@ -27,7 +26,7 @@ Everything in here was added after one of these happened:
 
 <p align="center"><img src="docs/org-chart.svg" alt="Org chart: me at the top, HQ below, four leads, and their projects. HQ can read every project's records but gives work only to the leads." width="760"></p>
 
-HQ is one agent session that owns the shared rules, the ledgers, the quota, and the reconciler that answers "did it arrive?" It gives work only to the four leads, and each lead runs its own projects. Besides bad news and product calls, agents only come to me about money, irreversible deletes, changes to my rules, and publishing. [Chapter 1](playbook/01-org-chart.md) has the rest.
+HQ is one agent session that owns the shared rules, the ledgers, the quota, and the reconciler that answers "did it arrive?" It gives work only to the four leads, and each lead runs its own projects. Agents come to me for six things only: bad news, product calls, spending, irreversible deletes, changes to my rules, and publishing. [Chapter 1](playbook/01-org-chart.md) has the rest.
 
 ## The chapters
 
@@ -107,7 +106,7 @@ python3 scripts/reconcile.py
 python3 scripts/rules_check.py
 ```
 
-Each one exits 1 when something is missing, overdue, or broken (a late delivery is only a warning), so you can run them from cron or CI. Claude Code treats exit code 2 as a block (other non-zero codes don't block), so wrap a check to use it in a hook: `python3 scripts/handoff_check.py --record content.md --repo . >&2 || exit 2`.
+Each one exits 1 when something is missing, overdue, or broken (a late delivery is only a warning), so you can run them from cron or CI. Claude Code treats exit code 2 as a block (other non-zero codes don't block), so to use a check in a hook, wrap it so a failure exits 2: `python3 scripts/handoff_check.py --record content.md --repo . >&2 || exit 2`.
 
 ## The four checks
 
@@ -127,10 +126,10 @@ All paths come from `ops.config.json`, so nothing's hard-coded. The tests check 
 
 ## Limits
 
-- The method is the one I use. The scripts are a clean rewrite, because my production versions are tied to my own servers and accounts, so these are deliberately small.
+- The method is the one I use. The scripts aren't my production code, which is tied to my own servers and accounts. They're small rewrites.
 - The checks only see what you write down. A delivery that isn't in `EXPECTATIONS.json` never gets reported missing.
 - `rules_check.py` only checks that a gate's script exists and contains your marker string. It can't prove the script is wired into a hook.
-- Nothing runs on its own. You wire the checks into your hooks, cron jobs, or CI. The rule registry template starts every rule as `advisory` until you do.
+- Nothing runs on its own. You wire the checks into your hooks, cron jobs, or CI. The rule registry template starts every rule as `advisory` until you do, except R-01, which `dispatch.py` enforces itself.
 - Times use a fixed UTC offset (`timezone_offset_hours`), so update it when daylight saving time changes.
 
 ## About me
