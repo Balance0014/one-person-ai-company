@@ -37,7 +37,7 @@ Run it when each session starts. A dead gate shows up the same day it dies.
 
 ## Where we are
 
-Across head office and four leads we have 170 registered rules: 82 enforced by a machine (48%), 42 checked on a schedule (25%), and 46 that still rely on discipline (27%). The last group is the to-do list, and it is written down. That is the whole point: you cannot fix enforcement you have not admitted is missing.
+Across head office and four leads we have 170 registered rules: 82 enforced by a machine (48%), 41 checked on a schedule (24%), and 47 that still rely on discipline (28%). One of those 47 was registered as "scheduled", but the check found no file that runs it, so it counts as discipline. The last group is the to-do list, and it is written down. That is the whole point: you cannot fix enforcement you have not admitted is missing.
 
 ## What it costs
 

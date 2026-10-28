@@ -60,8 +60,8 @@ This is not a thought experiment. As of 28 October 2026, in our own setup:
 | Agents | 18 active long-running sessions (one per lead or project) plus about 20 scheduled agents |
 | Structure | Head office, 4 leads, 45 role cards |
 | Scheduled deliveries reconciled | 21 daily and weekly ones, checked twice a day by a reconciler on a small server with zero model calls |
-| Rules | 170 registered: 82 machine-enforced, 42 checked on a schedule, 46 still on discipline |
-| Dispatch ledger | 66 tasks since mid-September: 33 closed with five-item evidence, 8 rejected, 25 open |
+| Rules | 170 registered: 82 machine-enforced (48%), 41 checked on a schedule (24%), 47 still on discipline (28%) |
+| Dispatch ledger | 67 tasks since mid-September: 33 closed with five-item evidence, 8 rejected, 26 open |
 | Handoff records | 24; drilled on 15 by opening fresh sessions with no chat history |
 
 The worst week is in the playbook too: an 18-day outage that the reconciler reported correctly every morning and that still was not fixed sooner ([chapter 4](playbook/04-one-judge-per-question.md#what-it-looked-like-for-us)).

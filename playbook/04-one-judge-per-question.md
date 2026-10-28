@@ -7,7 +7,7 @@ Ask an agent "did today's report go out?" and it will usually say yes. It may be
 Two failures we actually hit:
 
 - **A self-check that never noticed the self was dead.** The process that was supposed to report outages was the one that went down.
-- **The alarm went through the thing it was watching.** When the account ran out of quota, the scheduled jobs stopped, and so did the job that reported missing jobs. Nobody heard anything for two days.
+- **The alarm went through the thing it was watching.** When the account ran out of quota, the scheduled jobs stopped, and so did the job that reported missing jobs. Nobody heard anything for five days.
 
 ## The rule
 

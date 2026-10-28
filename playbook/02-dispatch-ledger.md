@@ -31,7 +31,7 @@ Each lead's session can list its own open tasks when it starts: `python3 scripts
 
 ## What it looks like for us
 
-Our ledger has carried 66 cross-layer tasks since mid-September: 33 closed with all five items of evidence, 8 rejected with a reason, 9 being worked on, and 16 not yet acknowledged, 13 of them overdue. Those 13 are not a success story. Before the ledger they would have been 13 requests quietly lost in old chats. Now they show up on a list every day, with an owner next to each one.
+As of 28 October our ledger has carried 67 cross-layer tasks since mid-September: 33 closed with all five items of evidence, 8 rejected with a reason, 9 being worked on, and 17 not yet acknowledged, 13 of them overdue. Those 13 are not a success story. Before the ledger they would have been 13 requests quietly lost in old chats. Now they show up on a list every day, with an owner next to each one.
 
 ## What it costs
 
