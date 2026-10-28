@@ -1,8 +1,8 @@
-# 1 · Org chart and lines of communication
+# 1 · Org chart and who talks to whom
 
 **English** · [中文](zh-CN/01-org-chart.md)
 
-Somewhere past a dozen agents I lost track. Every agent reported to me, every rule was pasted into every prompt, and within a month the copies disagreed. I'd become the bottleneck, and the message that mattered looked like all the others.
+Somewhere past a dozen agents I lost track. Every agent reported to me, every rule was pasted into every prompt, and before long the copies disagreed. I'd become the bottleneck, and the message that mattered looked like all the others.
 
 So I set the agents up like a small company with three layers.
 
@@ -10,18 +10,19 @@ So I set the agents up like a small company with three layers.
 
 | Layer | Who | Owns |
 |---|---|---|
-| HQ | One coordinating agent session | Shared rules, the ledgers, quota, the single answer to "did it arrive?", and the one channel bad news reaches me through |
+| HQ | One coordinating agent session | Shared rules, the ledgers, quota, and the reconciler that answers "did it arrive?" The reconciler runs outside the AI account and is the one channel bad news reaches me through |
 | Leads | One agent per business area. I have four: content, research, product, and infrastructure | Their area's quality bar, their own checks, scheduling and assigning work |
 | Projects | One agent session per project | The work itself. They take direction from their lead |
 
-HQ doesn't write product code or judge content. If it spots a problem inside an area, it tells that area's lead and leaves the fix to them.
+HQ doesn't write product code or judge content. If it spots a problem inside an area, it tells that area's lead and leaves the fix to them, even when fixing it directly would be faster.
 
 ## Where I sit
 
 The layers exist so that I talk to fewer agents, less often, about things only I can decide.
 
 - I settle product questions directly with the lead who owns the product. HQ doesn't relay them (relays lose detail) and doesn't decide for me.
-- HQ brings me bad news, through one channel (see [chapter 4](04-one-judge-per-question.md)), and decisions only I can make: spending money, deleting anything unrecoverable, changing a rule I set, and publishing anything. Everything else gets done first and reported afterward.
+- Bad news reaches me through one channel (see [chapter 4](04-one-judge-per-question.md)).
+- HQ brings me the decisions only I can make: spending money, deleting anything unrecoverable, changing a rule I set, and publishing anything. Everything else gets done first and reported afterward.
 - Agents check before they ask. I keep a decision log with the date, my exact words, and what changed ([`templates/ops/DECISIONS.md`](../templates/ops/DECISIONS.md)). If the answer's already in there, they act on it instead of asking me again.
 - Agents lead with the answer, in plain language, and skip the play-by-play.
 
@@ -34,7 +35,7 @@ The layers exist so that I talk to fewer agents, less often, about things only I
 | Across | Anything that spans two areas goes through HQ. |
 | Reading | HQ can read any project's raw logs, delivery records, and commits without asking, so problems can't hide behind a lead. |
 
-Tasks and conclusions go in the [dispatch ledger](02-dispatch-ledger.md), and the recipient reads them when it finishes what it's doing. A direct message is for two cases only: someone needs a decision now, or someone is blocked. A day's small items go out as one message. Nobody sets an alarm to keep checking on another agent. I tried that once, and [chapter 5](05-definition-of-done.md) has the bill.
+Tasks and conclusions go in the [dispatch ledger](02-dispatch-ledger.md), and the recipient reads them when it finishes what it's doing. A direct message is for two cases only: someone needs a decision now, or someone is blocked. A day's small items go out as one message. Nobody sets an alarm to keep checking on another agent. I once had agents woken every 20 minutes; [chapter 5](05-definition-of-done.md) has what that cost.
 
 ## Rules live in one place
 
@@ -45,5 +46,3 @@ HQ sets rules about how to work: what "done" means, quota, handoffs, how to talk
 Every role has four lines at the top of its own instruction file: what it delivers, what it owns, how good is good enough, and what enforces that. Template: [`templates/ROLE-CARD.md`](../templates/ROLE-CARD.md).
 
 The "delivers" line has to describe a result you can check. My reviewer agents' cards don't list the six questions they ask; they say every draft they approve is accurate and ready to publish. I have 45 of these cards, one per role, including scheduled jobs and paused projects, and a scheduled check flags any card whose "delivers" line just points somewhere else.
-
-The downside: HQ has to hand problems to the lead even when fixing them itself would be faster.

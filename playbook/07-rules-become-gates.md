@@ -18,11 +18,11 @@ Every rule says which tier it's in on the day it's created:
 
 - Gate and scheduled rules name the file that enforces them, plus a marker string that must appear in it.
 - Don't mark a rule `gate` unless something actually blocks it. A fake gate tells everyone the problem is handled, so nobody watches for it.
-- Each fact lives in one file, and everything else links to it. Hand-edited copies drift; mine did within weeks.
+- Each fact lives in one file, and everything else links to it. Hand-edited copies drift.
 - Before changing a rule or a script, list everything downstream that reads it. After the change, check each one.
 - Keep always-loaded instruction files short. I cap mine at about 200 lines, because past that they get skimmed.
 
-Template: [`templates/ops/RULES-REGISTRY.json`](../templates/ops/RULES-REGISTRY.json).
+Template: [`templates/ops/RULES-REGISTRY.json`](../templates/ops/RULES-REGISTRY.json). Its rules start as `advisory`, and each one's note says what to wire up before you promote it.
 
 ## Checking it
 
@@ -37,8 +37,8 @@ python3 scripts/rules_check.py
 
 Run it at the start of every session and a dead gate shows up the day it dies. It checks that the enforcing script exists and still contains the marker string you chose, such as a function name. It can't prove the script is wired into a hook, so that part is still on you.
 
-## Where I am
+## Results so far
 
 <p align="center"><img src="../docs/tiers.svg" alt="My 170 rules by tier: 82 gate (48 percent), 41 scheduled (24 percent), 47 advisory (28 percent)." width="760"></p>
 
-Across HQ and four leads I have 170 registered rules. 82 name the script that blocks them (48%), 41 are checked on a schedule (24%), and 47 rely on discipline (28%), including the content rule above.
+Across HQ and four leads I have 170 registered rules. 82 name the script that blocks them (48%), 41 are checked on a schedule (24%), and 47 rely on discipline (28%). That includes the content rule above, which now counts as discipline until someone writes the script that checks it.

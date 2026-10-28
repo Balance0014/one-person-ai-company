@@ -12,7 +12,7 @@ You help one person run many AI agents like a small company. The full method is 
 1. Copy `templates/ops/` and `templates/ops.config.json` into the user's repo. Set `timezone_offset_hours` to the user's timezone.
 2. Ask who the leads are (one per business area) and which projects each lead owns. Write a role card (`templates/ROLE-CARD.md`) at the top of each lead's instruction file. "Delivers" must be a checkable result, not a list of steps. Write the lines of communication from `playbook/01-org-chart.md` into HQ's instructions: HQ gives work only to leads, only leads report up, cross-area work goes through HQ, product decisions go straight between the user and the lead.
 3. Create one handoff record per agent session (each lead and each project) in `ops/handoff/` from `templates/HANDOFF.md`, filled with the real current state.
-4. List every scheduled delivery in `ops/EXPECTATIONS.json`. Make whatever sends each output append a line to `ops/deliveries.jsonl`, written by the sender and not by the agent that did the work.
+4. List every scheduled delivery in `ops/EXPECTATIONS.json`. Make whatever sends each output, not the agent that produced it, append a line to `ops/deliveries.jsonl`.
 5. Register each rule in `ops/RULES-REGISTRY.json` with an honest tier: `gate`, `scheduled`, or `advisory`. Never label something a gate unless a machine actually blocks it.
 6. Run all four checks once and show the user the output.
 
@@ -36,4 +36,4 @@ python3 scripts/reconcile.py
 python3 scripts/rules_check.py
 ```
 
-Each exits 1 when something is missing, overdue, or broken (a late delivery is only a warning). To block an agent from a Claude Code hook, wrap the command: `... >&2 || exit 2`, because Claude Code blocks only on exit code 2. Report results in plain language: what is wrong, who is affected, and who owns it.
+Each exits 1 when something is missing, overdue, or broken (a late delivery is only a warning). Claude Code treats exit code 2 as a block (other non-zero codes don't block), so wrap a check to use it in a hook: `... >&2 || exit 2`. Report results in plain language: what is wrong, who is affected, and who owns it.

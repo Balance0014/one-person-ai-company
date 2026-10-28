@@ -10,24 +10,24 @@
 <text class="b" x="130" y="125" text-anchor="middle">Session A</text>
 <text class="s" x="130" y="148" text-anchor="middle">after every key step</text>
 <text class="s" x="130" y="168" text-anchor="middle" style="fill:#cf222e">then: context cleared</text>
-<rect x="330" y="40" width="200" height="216" rx="6" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
+<rect x="316" y="40" width="228" height="216" rx="6" fill="#ffffff" stroke="#1f2328" stroke-width="1.4"/>
 <text class="b" x="430" y="66" text-anchor="middle">handoff.md</text>
-<text class="l" x="348" y="92" text-anchor="start">Updated 2026-10-28 20:42</text>
-<text class="t" x="348" y="116" text-anchor="start" style="font-size:12.5px">## Done</text>
-<text class="t" x="348" y="135" text-anchor="start" style="font-size:12.5px">## In progress</text>
-<text class="t" x="348" y="154" text-anchor="start" style="font-size:12.5px">## Not done</text>
-<text class="t" x="348" y="173" text-anchor="start" style="font-size:12.5px">## Next</text>
-<text class="t" x="348" y="192" text-anchor="start" style="font-size:12.5px">## Blocked on</text>
-<text class="t" x="348" y="211" text-anchor="start" style="font-size:12.5px">## Branches</text>
-<text class="t" x="348" y="230" text-anchor="start" style="font-size:12.5px">## Uncommitted</text>
+<text class="l" x="334" y="92" text-anchor="start">Updated 2026-10-28 20:42</text>
+<text class="t" x="334" y="116" text-anchor="start" style="font-size:12.5px">## Done</text>
+<text class="t" x="334" y="135" text-anchor="start" style="font-size:12.5px">## In progress</text>
+<text class="t" x="334" y="154" text-anchor="start" style="font-size:12.5px">## Not done</text>
+<text class="t" x="334" y="173" text-anchor="start" style="font-size:12.5px">## Next</text>
+<text class="t" x="334" y="192" text-anchor="start" style="font-size:12.5px">## Blocked on</text>
+<text class="t" x="334" y="211" text-anchor="start" style="font-size:12.5px">## Branches</text>
+<text class="t" x="334" y="230" text-anchor="start" style="font-size:12.5px">## Uncommitted</text>
 <rect x="630" y="90" width="200" height="100" rx="8" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.4"/>
 <text class="b" x="730" y="125" text-anchor="middle">Fresh session B</text>
 <text class="s" x="730" y="148" text-anchor="middle">no chat history</text>
 <text class="s" x="730" y="168" text-anchor="middle">says the next step</text>
-<path class="e" d="M230,140 L328,140" marker-end="url(#a)"/>
-<text class="l" x="279" y="128" text-anchor="middle">writes</text>
-<path class="e" d="M530,140 L628,140" marker-end="url(#a)"/>
-<text class="l" x="579" y="128" text-anchor="middle">reads</text>
+<path class="e" d="M230,140 L314,140" marker-end="url(#a)"/>
+<text class="l" x="272" y="128" text-anchor="middle">writes</text>
+<path class="e" d="M544,140 L628,140" marker-end="url(#a)"/>
+<text class="l" x="586" y="128" text-anchor="middle">reads</text>
 <rect x="250" y="274" width="360" height="34" rx="17" fill="#dafbe1" stroke="#4ac26b" stroke-width="1.4"/>
 <text class="t" x="430" y="296" text-anchor="middle" style="font-size:13px">record is within 15 min of the latest commit</text>
 </svg>

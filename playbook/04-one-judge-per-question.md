@@ -12,9 +12,9 @@ My rule now: each question has exactly one judge, and the judge reads only hard 
 |---|---|---|
 | Did it arrive? | The reconciler | The schedule file vs. what the *sender* logged |
 | Is it any good? | The area's lead | Its own quality checks |
-| Is anything stuck? | `dispatch.py overdue` and `handoff_check.py`, on a schedule | The dispatch ledger and the handoff records |
+| Is anything stuck? | `dispatch.py overdue`, plus `handoff_check.py --record <name> --repo <path>` for each project, on a schedule | The dispatch ledger and the handoff records |
 
-<p align="center"><img src="../docs/judge.svg" alt="The reconciler runs on a small server outside the AI account, compares the schedule with what the sender logged, and alerts me directly. Below: 17 morning reports during the 18-day outage, 210 missed deliveries." width="760"></p>
+<p align="center"><img src="../docs/judge.svg" alt="The reconciler runs on a small server outside the AI account, compares the schedule with what the sender logged, and alerts me directly." width="760"></p>
 
 - The delivery log is written by whatever sends the output, never by the agent that did the work.
 - Bad news has one channel, and that channel can't depend on the thing it watches. If your scheduler can die, the alarm about the scheduler can't run on it.
@@ -37,12 +37,8 @@ python3 scripts/reconcile.py --date 2026-10-26
 | 🟡 | Weekly report | 2026-10-26 17:00 | late, arrived 19:05 |
 ```
 
-Run it somewhere that doesn't share a fate with your agents, like a small server or a CI job. It makes no model calls, so it keeps running when your quota doesn't.
+Run it somewhere that doesn't share a fate with your agents, like a small server or a CI job. It makes no model calls, so it keeps working after your quota runs out.
 
-## The 18 days
+## Results so far
 
-After September 16, my reconciler started sending its own alerts instead of handing them to an agent.
-
-From September 26 to October 13, none of my AI-run scheduled jobs started. The account hit its usage limit, then the plan lapsed. That part's on me: I didn't renew it until October 14. Every agent that might have investigated was down too, but the reconciler kept running. Over those 18 days its morning reports listed 210 missed deliveries, 11 to 13 a day, and it messaged me almost every morning. It even guessed the cause: when that many deliveries go missing at once, check the account's quota first.
-
-So the judge did its job. What it got wrong was the owner. It assigned the quota problem to HQ, an agent on the same dead account. [Chapter 8](08-alerts-that-remember.md) is about naming an owner who can act.
+Since September 16 my reconciler has run twice a day from its own server and sends its alerts directly, with no agent in between. It tracks 21 scheduled deliveries.

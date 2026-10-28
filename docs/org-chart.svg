@@ -35,7 +35,7 @@
 <rect x="280" y="135" width="300" height="72" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.4"/>
 <text class="b" x="430" y="163" text-anchor="middle">HQ</text>
 <text class="s" x="430" y="185" text-anchor="middle">shared rules · ledgers · quota</text>
-<text class="s" x="430" y="201" text-anchor="middle">the one judge of “did it arrive”</text>
+<text class="s" x="430" y="201" text-anchor="middle">runs the one judge of “did it arrive”</text>
 <rect x="34" y="255" width="792" height="80" rx="12" fill="none" stroke="#d4a72c" stroke-width="1.2" stroke-dasharray="2 3"/>
 <rect x="45" y="270" width="170" height="50" rx="8" fill="#fff8c5" stroke="#d4a72c" stroke-width="1.4"/>
 <text class="b" x="130" y="300" text-anchor="middle">Lead · content</text>

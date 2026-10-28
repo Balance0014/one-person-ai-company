@@ -147,6 +147,8 @@ def main(argv=None):
 
     if args.cmd == "reject":
         item = find(ledger, args.id)
+        if item["status"] not in ("new", "acked"):
+            sys.exit(f"{args.id} is already {item['status']}")
         item.update(status="rejected", rejected_at=iso(now), reason=args.reason)
         save_ledger(path, ledger)
         print(f"{args.id} rejected")

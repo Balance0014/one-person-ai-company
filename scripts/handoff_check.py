@@ -33,6 +33,16 @@ SECTIONS = [
     "## Branches",
     "## Uncommitted or unpushed",
 ]
+# The same seven sections in Chinese; a record may use either heading for each.
+SECTIONS_ZH = {
+    "## Done": "## 已完成",
+    "## In progress": "## 正在做",
+    "## Not done": "## 未完成",
+    "## Next": "## 下一步",
+    "## Blocked on": "## 卡在哪",
+    "## Branches": "## 代码分支",
+    "## Uncommitted or unpushed": "## 没提交或没推送的改动",
+}
 STAMP = re.compile(r"Updated\s+(\d{4}-\d{2}-\d{2})\s+(\d{1,2}:\d{2})")
 
 
@@ -58,7 +68,7 @@ def check_record(path, cfg, repo=None):
         updated = updated.replace(tzinfo=opsconfig.local_tz(cfg))
     lines = {line.strip() for line in text.splitlines()}
     for heading in SECTIONS:
-        if heading not in lines:
+        if heading not in lines and SECTIONS_ZH[heading] not in lines:
             problems.append(f'missing section "{heading}"')
     if repo and updated:
         committed = last_commit_time(repo)

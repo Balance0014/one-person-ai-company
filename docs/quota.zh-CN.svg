@@ -29,5 +29,5 @@
 <rect x="640" y="186" width="100" height="40" fill="url(#hatch)" stroke="#d0d7de"/>
 <circle cx="690" cy="206" r="7" fill="#1f2328"/>
 <text class="s" x="40" y="176" text-anchor="start">一天之内</text>
-<text class="l" x="430" y="250" text-anchor="middle">● 定时任务   ▨ 缓冲区：不做重活；同时最多两个会话干重活</text>
+<text class="l" x="430" y="250" text-anchor="middle">● 定时任务   ▨ 缓冲区：不干重活；同时最多两个会话干重活</text>
 </svg>

@@ -26,7 +26,7 @@
 <text class="s" x="496" y="156" text-anchor="start" style="font-weight:600">影响</text>
 <text class="t" x="496" y="177" text-anchor="start">今天没有简报。</text>
 <text class="s" x="496" y="208" text-anchor="start" style="font-weight:600">归谁</text>
-<text class="t" x="496" y="229" text-anchor="start">你：AI 套餐过期了，去续费。</text>
+<text class="t" x="496" y="229" text-anchor="start">你：AI 套餐过期了，要续费。</text>
 <text class="l" x="430" y="300" text-anchor="middle">和上次一模一样的报警：20 小时内不再发。变严重或范围变大：马上发。</text>
 <text class="l" x="430" y="320" text-anchor="middle">问题消失后，发一句「✅ 已恢复」。</text>
 </svg>

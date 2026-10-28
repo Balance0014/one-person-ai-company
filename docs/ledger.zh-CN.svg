@@ -27,5 +27,5 @@
 <path class="e" d="M200,132 L288,132" marker-end="url(#a)"/>
 <path class="e" d="M470,132 L568,132" marker-end="url(#a)"/>
 <path class="e" d="M470,150 Q520,150 520,190 Q520,228 568,228" marker-end="url(#a)"/>
-<text class="l" x="430" y="285" text-anchor="middle">聊天里可以提一句账上的哪条活，但代替不了它。</text>
+<text class="l" x="430" y="285" text-anchor="middle">聊天里可以提账上的某条活，但不能拿聊天代替记账。</text>
 </svg>

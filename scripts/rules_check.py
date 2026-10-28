@@ -40,8 +40,11 @@ def check(registry, root):
         if not path or not os.path.exists(full):
             dead.append(f"{rule['id']}: enforcer {path or '(none)'} does not exist — {rule['rule']}")
             continue
+        if not rule.get("marker"):
+            dead.append(f"{rule['id']}: no marker string, so nothing proves {path} still enforces it — {rule['rule']}")
+            continue
         with open(full, encoding="utf-8", errors="ignore") as f:
-            if rule.get("marker", "") not in f.read():
+            if rule["marker"] not in f.read():
                 dead.append(f"{rule['id']}: marker {rule.get('marker')!r} not found in {path} — {rule['rule']}")
     return dead, counts
 

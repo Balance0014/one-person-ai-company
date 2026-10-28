@@ -61,6 +61,16 @@ class DispatchTest(Workspace):
         item = json.load(open(self.path("ops", "DISPATCH.json")))["items"][0]
         self.assertEqual(item["status"], "acked")
 
+    def test_reject_refused_after_done(self):
+        task = run("dispatch.py", "add", "--to", "content", "--title", "x", cwd=self.dir).stdout.strip()
+        run("dispatch.py", "ack", task, "--plan", "p", cwd=self.dir)
+        run("dispatch.py", "done", task, "--root-cause", "a", "--prevention", "b", "--sweep", "c",
+            "--verification", "d", "--cleanup", "e", cwd=self.dir)
+        r = run("dispatch.py", "reject", task, "--reason", "oops", cwd=self.dir)
+        self.assertNotEqual(r.returncode, 0)
+        item = json.load(open(self.path("ops", "DISPATCH.json")))["items"][0]
+        self.assertEqual(item["status"], "done")
+
     def test_done_refused_before_ack(self):
         task = run("dispatch.py", "add", "--to", "content", "--title", "x", cwd=self.dir).stdout.strip()
         r = run("dispatch.py", "done", task, "--root-cause", "a", "--prevention", "b", "--sweep", "c",
@@ -96,6 +106,13 @@ class HandoffTest(Workspace):
     def test_good_record_passes(self):
         self.write("a.md", self.GOOD)
         self.assertEqual(run("handoff_check.py", cwd=self.dir).returncode, 0)
+
+    def test_chinese_headings_pass(self):
+        zh = ["## 已完成", "## 正在做", "## 未完成", "## 下一步", "## 卡在哪", "## 代码分支", "## 没提交或没推送的改动"]
+        self.write("a.md", "Updated 2026-10-28 09:00\n" + "\n".join(zh) + "\n")
+        self.assertEqual(run("handoff_check.py", cwd=self.dir).returncode, 0)
+        self.write("a.md", "Updated 2026-10-28 09:00\n" + "\n".join(zh[:-1]) + "\n")
+        self.assertEqual(run("handoff_check.py", cwd=self.dir).returncode, 1)
 
     def test_missing_section_and_stamp_fail(self):
         self.write("a.md", "# no stamp\n## Done\n")
@@ -184,6 +201,13 @@ class RulesTest(Workspace):
         json.dump(cfg, open(self.path("ops.config.json"), "w"))
         r = run("rules_check.py", cwd=self.dir)
         self.assertEqual(r.returncode, 0, r.stdout)
+
+    def test_missing_marker_is_reported(self):
+        reg = {"rules": [{"id": "X-2", "rule": "no broken links", "tier": "gate", "enforced_by": "ops.config.json"}]}
+        json.dump(reg, open(self.path("ops", "RULES-REGISTRY.json"), "w"))
+        r = run("rules_check.py", cwd=self.dir)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("no marker", r.stdout)
 
     def test_dead_enforcer_is_reported(self):
         reg = {"rules": [{"id": "X-1", "rule": "no broken links", "tier": "gate",

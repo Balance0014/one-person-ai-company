@@ -29,7 +29,7 @@ python3 scripts/dispatch.py overdue   # exits 1 if anything is late; run it on a
 
 Each lead's session lists its own open tasks when it starts: `python3 scripts/dispatch.py list --to content --open`.
 
-## How it's going
+## Results so far
 
 As of October 28, 2026, my ledger holds 67 tasks from the past six weeks. Of those, 33 are closed with all five pieces of evidence, 8 were rejected with a reason, 9 are in progress, and 17 haven't been acknowledged, 13 of them past their due date.
 

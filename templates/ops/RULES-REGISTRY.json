@@ -1,10 +1,37 @@
 {
-  "_readme": "Every rule says how it is enforced. gate = a machine blocks it; scheduled = a job checks it on a timer; advisory = discipline only (say so honestly). gate and scheduled rules name the file that enforces them and a string that must appear in it; scripts/rules_check.py fails when an enforcer disappears.",
+  "_readme": "Every rule says how it is enforced. gate = a machine blocks it; scheduled = a job checks it on a timer; advisory = discipline only (say so honestly). gate and scheduled rules name the file that enforces them and a marker string that must appear in it; scripts/rules_check.py fails when an enforcer or its marker disappears. Rules start as advisory and move up only after you've wired the check into a hook, cron job, or CI (see each rule's note).",
   "rules": [
-    {"id": "R-01", "rule": "A task cannot close without the five-item definition of done", "tier": "gate", "enforced_by": "scripts/dispatch.py", "marker": "DONE_FIELDS"},
-    {"id": "R-02", "rule": "Tasks are acknowledged within 24 hours and finished by their due date", "tier": "scheduled", "enforced_by": "scripts/dispatch.py", "marker": "not acknowledged after"},
-    {"id": "R-03", "rule": "Every project keeps a handoff record with all seven sections, updated after each key step", "tier": "gate", "enforced_by": "scripts/handoff_check.py", "marker": "SECTIONS"},
-    {"id": "R-04", "rule": "Only the reconciler decides whether a delivery arrived", "tier": "scheduled", "enforced_by": "scripts/reconcile.py", "marker": "def judge"},
-    {"id": "R-05", "rule": "At 90% of the weekly quota, stop starting changes; keep only what protects scheduled deliveries", "tier": "advisory"}
+    {
+      "id": "R-01",
+      "rule": "A task cannot close without an ack and the five-item definition of done",
+      "tier": "gate",
+      "enforced_by": "scripts/dispatch.py",
+      "marker": "DONE_FIELDS",
+      "note": "dispatch.py done refuses on its own. Editing DISPATCH.json by hand gets around it, so review ledger diffs."
+    },
+    {
+      "id": "R-02",
+      "rule": "Tasks are acknowledged within 24 hours and finished by their due date",
+      "tier": "advisory",
+      "note": "Move to scheduled, enforced_by scripts/dispatch.py, marker 'not acknowledged after', once dispatch.py overdue runs on a timer."
+    },
+    {
+      "id": "R-03",
+      "rule": "Every agent session keeps a handoff record with all seven sections, updated after each key step",
+      "tier": "advisory",
+      "note": "Move to gate, enforced_by scripts/handoff_check.py, marker 'SECTIONS', once handoff_check.py --record runs in each session's stop hook."
+    },
+    {
+      "id": "R-04",
+      "rule": "Only the reconciler decides whether a delivery arrived",
+      "tier": "advisory",
+      "note": "Move to scheduled, enforced_by scripts/reconcile.py, marker 'def judge', once reconcile.py runs on a timer outside your AI account."
+    },
+    {
+      "id": "R-05",
+      "rule": "At 90% of the weekly quota, stop starting new work; keep only what protects scheduled deliveries",
+      "tier": "advisory",
+      "note": "Needs a pre-tool hook that reads your usage; see playbook chapter 6."
+    }
   ]
 }
