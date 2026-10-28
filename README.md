@@ -21,20 +21,7 @@ Running one agent is easy. Running thirty is a management problem. Every piece h
 
 ## How it is organized
 
-```mermaid
-flowchart TD
-    You(["You"])
-    HO["Head office<br/>rules · ledgers · quota · 'did it arrive'"]
-    L1["Lead · area A"]
-    L2["Lead · area B"]
-    L3["Lead · area C"]
-    W["Workstreams<br/>one agent session per project"]
-
-    You <-->|"your calls · bad news, one exit"| HO
-    You <-->|"product decisions, direct"| L1 & L2 & L3
-    HO -->|"tasks via ledger"| L1 & L2 & L3
-    L1 & L2 & L3 --> W
-```
+<p align="center"><img src="docs/org-chart.svg" alt="Org chart: you at the top, head office below you, three leads, and their workstreams. Head office reads every workstream's records but gives orders only to leads." width="760"></p>
 
 Head office talks only to leads; leads run their own workstreams; anything crossing two areas goes through head office. You hear bad news through one exit, discuss product decisions directly with the lead who owns them, and are asked only about money, irreversible deletions, rules you set, and anything going public. [Chapter 1](playbook/01-org-chart.md) has the full rules.
 

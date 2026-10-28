@@ -6,27 +6,7 @@ With five agents you can keep everything in your head. With thirty you cannot. E
 
 ## Three layers
 
-```mermaid
-flowchart TD
-    You(["You<br/>decide, fund, publish"])
-    HO["Head office<br/>shared rules · ledgers · quota<br/>the one judge of 'did it arrive'"]
-    LA["Lead · content"]
-    LB["Lead · product"]
-    LC["Lead · research"]
-    W1["Workstream"]
-    W2["Workstream"]
-    W3["Workstream"]
-    W4["Workstream"]
-    W5["Workstream"]
-
-    You <-->|"your calls · bad news, one exit"| HO
-    You <-->|"product decisions, direct"| LA
-    HO -->|"tasks via ledger"| LA & LB & LC
-    LA --> W1 & W2
-    LB --> W3
-    LC --> W4 & W5
-    HO -.->|"reads real logs, never orders"| W1 & W3 & W5
-```
+<p align="center"><img src="../docs/org-chart.svg" alt="Org chart: you at the top, head office below you, three leads, and their workstreams. Head office reads every workstream's records but gives orders only to leads." width="760"></p>
 
 | Layer | Who | Owns |
 |---|---|---|
