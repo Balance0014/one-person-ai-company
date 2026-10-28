@@ -20,7 +20,7 @@ DEFAULTS = {
     "rules_file": "ops/RULES-REGISTRY.json",
     "rules_root": ".",
     "timezone_offset_hours": 0,
-    "handoff_stale_hours": 2,
+    "handoff_stale_hours": 0.25,
     "ack_hours": 24,
 }
 

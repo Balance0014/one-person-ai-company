@@ -10,8 +10,8 @@ You help one person run many AI agents like a small company. The full method is 
 ## When setting it up in a repo
 
 1. Copy `templates/ops/` and `templates/ops.config.json` into the user's repo. Set `timezone_offset_hours` to the user's timezone.
-2. Ask who the leads are (one per business area) and which projects each lead owns. Write a role card (`templates/ROLE-CARD.md`) at the top of each lead's instruction file. "Delivers" must be a checkable result, not a list of steps. Write the lines of communication from `playbook/01-org-chart.md` into the head office's instructions: head office talks only to leads, only leads report up, cross-area work goes through head office, product decisions go straight between the user and the lead.
-3. Create one handoff record per workstream in `ops/handoff/` from `templates/HANDOFF.md`, filled with the real current state.
+2. Ask who the leads are (one per business area) and which projects each lead owns. Write a role card (`templates/ROLE-CARD.md`) at the top of each lead's instruction file. "Delivers" must be a checkable result, not a list of steps. Write the lines of communication from `playbook/01-org-chart.md` into HQ's instructions: HQ gives work only to leads, only leads report up, cross-area work goes through HQ, product decisions go straight between the user and the lead.
+3. Create one handoff record per project in `ops/handoff/` from `templates/HANDOFF.md`, filled with the real current state.
 4. List every scheduled delivery in `ops/EXPECTATIONS.json`. Make whatever sends each output append a line to `ops/deliveries.jsonl`, written by the sender and not by the agent that did the work.
 5. Register each rule in `ops/RULES-REGISTRY.json` with an honest tier: `gate`, `scheduled`, or `advisory`. Never label something a gate unless a machine actually blocks it.
 6. Run all four checks once and show the user the output.

@@ -1,23 +1,19 @@
 # 2 · The dispatch ledger
 
-## The problem
+I used to ask an agent to fix something in chat. Then the session got cleared, or a different agent took over the area the next week, and the request was gone. Nothing told me it had been dropped.
 
-You ask an agent to fix something in a chat. The chat ends, the session gets cleared, or a different agent picks up the area next week. Nobody remembers the request, and nothing tells you it was dropped.
-
-## The rule
-
-Every task that crosses a layer lives in one file in the repo, not in chat:
+Now every task that crosses a layer (HQ to a lead, a lead to HQ, one area to another) is an entry in a single file in the repo:
 
 ```
 new → acked (with a plan) → done (with evidence) | rejected (with a reason)
 ```
 
-- **Acknowledge within 24 hours.** An unacknowledged task is flagged.
-- **Finish by the due date.** An open task past its due date is flagged.
-- **"Done" requires evidence.** The ledger refuses to close a task without the five-item definition of done (see [5 · Definition of done](05-definition-of-done.md)).
-- **A chat message is a reminder, not the task.** The ledger entry is the task.
+- The owner acknowledges within 24 hours, or the task gets flagged.
+- An open task past its due date gets flagged.
+- Closing a task takes all five pieces of evidence from [chapter 5](05-definition-of-done.md). The script won't close it while any of them is empty.
+- A chat message can remind someone about a task. It isn't the task.
 
-## How to run it
+## Commands
 
 ```bash
 python3 scripts/dispatch.py add --to content --title "Morning brief arrived late twice this week"
@@ -27,12 +23,12 @@ python3 scripts/dispatch.py done D-20261028-01 \
 python3 scripts/dispatch.py overdue   # exits 1 if anything is late; run it on a schedule
 ```
 
-Each lead's session can list its own open tasks when it starts: `python3 scripts/dispatch.py list --to content --open`.
+Each lead's session lists its own open tasks when it starts: `python3 scripts/dispatch.py list --to content --open`.
 
-## What it looks like for us
+## How it's going
 
-As of 28 October our ledger has carried 67 cross-layer tasks since mid-September: 33 closed with all five items of evidence, 8 rejected with a reason, 9 being worked on, and 17 not yet acknowledged, 13 of them overdue. Those 13 are not a success story. Before the ledger they would have been 13 requests quietly lost in old chats. Now they show up on a list every day, with an owner next to each one.
+As of October 28, 2026, my ledger holds 67 tasks from the past six weeks. 33 are closed with all five pieces of evidence, 8 were rejected with a reason, 9 are in progress, and 17 haven't been acknowledged. 13 of those are overdue.
 
-## What it costs
+So the 24-hour rule gets broken a lot. The ledger hasn't made anyone faster. What it changed is that those 13 tasks show up on a list every day with an owner's name next to them. Before, they'd have been sitting in old chats where nobody would ever look again.
 
-One JSON file and a few seconds per task. No model calls.
+It's one JSON file, a few seconds per task, and no model calls.

@@ -1,6 +1,6 @@
 Updated 2026-01-01 09:00 · Read first: README.md → docs/rules.md → this file
 
-# Handoff · <workstream name>
+# Handoff · <project name>
 
 > If the account, the quota, or the chat disappears right now, a new session with no history
 > should be able to read this file and say exactly what to do next. Update it after every key

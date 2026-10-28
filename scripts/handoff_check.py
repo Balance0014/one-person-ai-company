@@ -2,12 +2,13 @@
 """Handoff records: if the account or the quota dies mid-task, a brand-new
 session with no chat history must be able to pick the work up from the repo.
 
-Each workstream keeps one Markdown file in handoff_dir. This script checks:
+Each project keeps one Markdown file in handoff_dir. This script checks:
   1. The first line says when it was last updated:  "Updated YYYY-MM-DD HH:MM"
      (in the timezone set by timezone_offset_hours).
   2. All seven sections exist (exact headings below).
   3. Optional --repo PATH: the record is not older than the latest commit in
-     that repo by more than handoff_stale_hours. Work that is committed but
+     that repo by more than handoff_stale_hours (default 15 minutes; the stamp
+     only has minute precision). Work that is committed but
      not written down is exactly what gets lost.
 
 Exit 1 if any record fails, so it can run as a stop hook or in CI.

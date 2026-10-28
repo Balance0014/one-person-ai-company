@@ -108,6 +108,28 @@ class HandoffTest(Workspace):
         self.assertEqual(r.returncode, 1)
         self.assertIn("stale", r.stdout)
 
+    def test_record_thirty_minutes_behind_commit_fails(self):
+        # A two-hour grace window let a session keep working long after its last
+        # update and still pass. Half an hour of unrecorded work must fail.
+        repo = self.path("repo")
+        os.makedirs(repo)
+        env = dict(os.environ, GIT_AUTHOR_NAME="t", GIT_AUTHOR_EMAIL="t@example.invalid",
+                   GIT_COMMITTER_NAME="t", GIT_COMMITTER_EMAIL="t@example.invalid")
+        subprocess.run(["git", "init", "-q", repo], check=True)
+        subprocess.run(["git", "-C", repo, "commit", "-q", "--allow-empty", "-m", "work"], check=True, env=env)
+        ct = int(subprocess.run(["git", "-C", repo, "log", "-1", "--format=%ct"],
+                                capture_output=True, text=True, check=True).stdout)
+        from datetime import datetime, timezone
+        stamp = datetime.fromtimestamp(ct - 30 * 60, timezone.utc).strftime("%Y-%m-%d %H:%M")
+        self.write("a.md", self.GOOD.replace("2026-10-28 09:00", stamp))
+        r = run("handoff_check.py", "--repo", repo, cwd=self.dir)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("stale", r.stdout)
+
+        stamp = datetime.fromtimestamp(ct, timezone.utc).strftime("%Y-%m-%d %H:%M")
+        self.write("a.md", self.GOOD.replace("2026-10-28 09:00", stamp))
+        self.assertEqual(run("handoff_check.py", "--repo", repo, cwd=self.dir).returncode, 0)
+
 
 class ReconcileTest(Workspace):
     def log(self, *rows):

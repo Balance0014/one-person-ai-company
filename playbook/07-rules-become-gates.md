@@ -1,28 +1,28 @@
 # 7 · Rules become gates
 
-## The problem
+One of my content rules was registered as "checked on a schedule." When the registry check went looking for the script that runs it, there wasn't one. The rule had been sitting in a file for almost two weeks, enforced by nothing.
 
-You write a rule into an agent's instructions. It works for a week. Then the instructions get long, the rule gets skimmed, and the behavior comes back. Or someone rewrites the script that enforced it, and the rule is still written down but nothing checks it any more.
+That's the usual way rules die. You write one into an agent's instructions and it works for a week. Then the instructions get long, the rule gets skimmed, and the old behavior comes back. Or someone rewrites the script that enforced it, and the rule is still written down but nothing checks it.
 
-## The rule
+## Tiers
 
-Every rule, the day it is created, says which tier it is:
+Every rule says which tier it's in on the day it's created:
 
 | Tier | Meaning |
 |---|---|
 | `gate` | A machine blocks the wrong action: a hook, a pre-commit check, a CI step |
 | `scheduled` | A job checks it on a timer and reports |
-| `advisory` | It relies on discipline. Say so honestly |
+| `advisory` | It relies on discipline, and the registry says so |
 
-- Gate and scheduled rules name the file that enforces them and a string that must appear in it.
-- **Claiming a gate that does not exist is worse than having no rule.**
-- **One fact, one home.** A rule lives in exactly one file. Everywhere else holds only a pointer to it. Two hand-edited copies of the same fact will always drift apart.
-- **Change it, then connect it.** Before changing a rule or script, list everything downstream that reads it; after changing it, check each one.
-- Keep always-loaded instruction files short (we cap them at about 200 lines). Long ones get skimmed.
+- Gate and scheduled rules name the file that enforces them, plus a string that must appear in it.
+- Claiming a gate that doesn't exist is worse than having no rule.
+- Each fact lives in one file. Everywhere else holds a pointer to it. Two hand-edited copies of the same fact always drift apart.
+- Before changing a rule or a script, list everything downstream that reads it. After the change, check each one.
+- Keep always-loaded instruction files short. I cap mine at about 200 lines, because past that they get skimmed.
 
 Template: [`templates/ops/RULES-REGISTRY.json`](../templates/ops/RULES-REGISTRY.json).
 
-## How to check it
+## Checking it
 
 ```bash
 python3 scripts/rules_check.py
@@ -33,12 +33,8 @@ python3 scripts/rules_check.py
 ✗ R-06: enforcer scripts/link_gate.py does not exist — Posts with broken links never ship
 ```
 
-Run it when each session starts. A dead gate shows up the same day it dies.
+Run it at the start of every session and a dead gate shows up the day it dies. It confirms the enforcing script exists and contains the check. It can't prove the script is actually wired into a hook, so that part is still on you.
 
-## Where we are
+## Where I am
 
-Across head office and four leads we have 170 registered rules: 82 enforced by a machine (48%), 41 checked on a schedule (24%), and 47 that still rely on discipline (28%). One of those 47 was registered as "scheduled", but the check found no file that runs it, so it counts as discipline. The last group is the to-do list, and it is written down. That is the whole point: you cannot fix enforcement you have not admitted is missing.
-
-## What it costs
-
-Nothing to run. Writing the registry entry takes a minute per rule.
+Across HQ and four leads I have 170 registered rules. 82 name the script that blocks them (48%), 41 are checked on a schedule (24%), and 47 rely on discipline (28%), including the content rule above. Those 47 are the to-do list.

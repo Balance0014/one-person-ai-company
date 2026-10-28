@@ -1,31 +1,27 @@
 # 8 · Alerts that remember
 
-## The problem
+In one week in October 2026, my own HQ monitor sent me 28 messages, mostly the same overdue internal tasks repeated every day. I couldn't act on any of them. A few weeks earlier I had the opposite problem. During the 18-day outage in [chapter 4](04-one-judge-per-question.md#the-18-days), a correct alert went out almost every morning and never told me the one thing I had to do.
 
-An alert fires every hour for the same problem. By day two nobody reads it. By day five a real outage is sitting in the same channel and nobody sees it.
+## Three questions before an alert ships
 
-Both halves happened to us. Our own head-office monitor once sent 28 cards to the owner's channel in 7 days, mostly the same overdue internal tasks repeated daily, none of which the owner could act on. And in the outage described in [chapter 4](04-one-judge-per-question.md#what-it-looked-like-for-us), a correct alert went out every morning for 18 days without saying the one thing that would have ended it: renew the plan.
+1. **Does it mean someone was affected?** "A report didn't arrive", "a number is stale", "a page won't load". An error showing up in a log doesn't count. Compare against a baseline or use a ratio; made-up absolute thresholds fire at the wrong times.
+2. **What happens if you replay it against the last 7 days?** Count how often it would have fired and check whether someone was really affected each time. If even one case is wrong, fix the rule before it ships.
+3. **Who can act on it, and what exactly should they do?** Name someone who'll still be up when the thing being watched is down. If the cause could be the account or the bill, that someone is you, and the alert should say "renew the plan", not "11 deliveries missing." If nobody who reads it can act, keep it out of their channel and put it in a ledger the responsible lead works through.
 
-## The rule
+## How alerts should behave
 
-Before a new alert ships, it must answer three questions:
-
-1. **Does it mean someone was affected?** Not "an error appeared in a log", but "a report did not arrive", "a number is stale", "a page will not open". Use ratios or comparisons to a baseline, not made-up absolute thresholds.
-2. **Has it been replayed against the last 7 days?** How many times would it have fired, and was someone really affected each time? If the answer is off even once, fix the rule before shipping it.
-3. **What can the reader do about it?** If they can act, say exactly what ("renew the plan", not "11 deliveries missing"). If they cannot, it is your problem, not theirs. Keep it out of their channel and in a ledger that the responsible lead reads.
-
-And three behaviors:
-
-- **Report changes, not repeats.** The same problem with the same content stays quiet for 20 hours. Worse or wider goes out immediately.
-- **Close the loop.** When the problem clears, send one "✅ recovered" line and drop it from memory.
-- **Never put changing numbers in the de-duplication key.** If the key contains "3 hours ago", de-duplication never works.
+- **Only report changes.** If the same problem has the same content, stay quiet for 20 hours. If it gets worse or spreads, send it right away.
+- **Close the loop.** When the problem clears, send one "✅ recovered" line and forget it.
+- **Keep changing numbers out of the de-duplication key.** If the key contains "3 hours ago", de-duplication never matches.
 
 Every red alert has three parts, in this order:
 
-- **Problem:** one plain sentence, naming the thing (which report, which source). No function names, field names, or URLs.
-- **Impact:** what the reader will notice (did not arrive, numbers are stale, money is leaking).
-- **Owner:** which lead, or head office.
+- **Problem:** one plain sentence that names the thing (which report, which source). No function names, field names, or URLs.
+- **Impact:** what the reader will notice (it didn't arrive, the numbers are stale, money is leaking).
+- **Owner:** which lead, or HQ. Or you.
 
-## What it costs
+## What changed for me
 
-You will ship fewer alerts. Every one that ships gets read. After the 28-cards week, internal backlog moved out of the owner's channel into a ledger head office works through, and the daily card now opens with one sentence: what is missing, and whether the owner needs to do anything.
+After the 28-message week, internal backlog moved out of my chat and into a ledger HQ works through. My daily summary now opens with one sentence: what's missing, and whether I need to do anything.
+
+The case it still gets wrong is the one from chapter 4. My reconciler can't see my billing, so when every job stops at once it guesses quota and points at HQ. That gap is still open.
