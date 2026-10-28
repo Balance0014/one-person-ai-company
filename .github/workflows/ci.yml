@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Tests and demo (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Unit tests (good input passes, bad input is caught)
+        run: python -m unittest discover tests -v
+
+      - name: Demo fails in exactly the documented ways
+        working-directory: examples
+        run: |
+          check() {  # check <expected text> <command...>: must exit 1 and print the text
+            want=$1; shift
+            out=$("$@" 2>&1) && code=0 || code=$?
+            echo "$out"
+            if [ "$code" -ne 1 ]; then echo "::error::expected exit 1, got $code: $*"; exit 1; fi
+            if ! grep -qF -- "$want" <<<"$out"; then echo "::error::output of '$*' lacks: $want"; exit 1; fi
+          }
+          check "Morning brief" python ../scripts/reconcile.py --date 2026-10-27
+          check 'missing section "## In progress"' python ../scripts/handoff_check.py
+          check "R-06" python ../scripts/rules_check.py
+
+  skill-install:
+    name: Install as an agent skill, the way the README says
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: npx skills add
+        env:
+          DO_NOT_TRACK: "1"
+          DISABLE_TELEMETRY: "1"
+        run: |
+          mkdir -p "$RUNNER_TEMP/demo" && cd "$RUNNER_TEMP/demo"
+          url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+          npx --yes skills@1.7.2 add "$url" --list
+          npx --yes skills@1.7.2 add "$url" --agent claude-code --yes
+          find -L . -path '*one-person-ai-company/SKILL.md' | grep .

@@ -7,7 +7,7 @@ Ask an agent "did today's report go out?" and it will usually say yes. It may be
 Two failures we actually hit:
 
 - **A self-check that never noticed the self was dead.** The process that was supposed to report outages was the one that went down.
-- **The alarm went through the thing it was watching.** When the account ran out of quota, the scheduled jobs stopped, and so did the job that reported missing jobs. The owner heard nothing for days.
+- **The alarm went through the thing it was watching.** When the account ran out of quota, the scheduled jobs stopped, and so did the job that reported missing jobs. Nobody heard anything for two days.
 
 ## The rule
 
@@ -41,6 +41,14 @@ python3 scripts/reconcile.py --date 2026-10-27
 ```
 
 Run it somewhere that does not share a fate with your agents (a small server, a CI job), so it still reports when they are down.
+
+## What it looked like for us
+
+Our reconciler runs twice a day on a small server and makes no model calls. It tracks 21 scheduled deliveries.
+
+From 26 September to 13 October, none of our AI-run scheduled jobs started: the account first hit its usage limit, then the plan lapsed. Every agent that might have investigated was down with it. The reconciler was not. It sent 17 morning reports in a row, each listing between 11 and 26 missing deliveries, 210 in total.
+
+It was right every single time, and the outage still lasted 18 days. The reconciler could say *what* was missing but not *why*, and a list of eleven missing reports does not tell you that the fix is to renew a plan. That gap is what [chapter 8](08-alerts-that-remember.md) is about. The judge is necessary; it is not sufficient.
 
 ## What it costs
 

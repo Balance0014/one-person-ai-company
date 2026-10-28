@@ -28,6 +28,10 @@ Wire the second command into your agent's stop hook. The agent then cannot end a
 
 Once in a while, open a fresh session, give it only the repo, and ask it to state where each workstream stands and what comes next. Compare with reality line by line. If it cannot say the next step precisely, the record is not good enough.
 
+We keep 24 handoff records, one per long-running session. Before trusting the system we ran this drill on 15 of them. Every single drill found mismatches between the record and the actual repo, usually five or more: a "next step" that was already done, a task marked unclaimed that someone was already working on, a hard-coded API token the record placed in one file that was actually in nine. On a normal day the start-of-session check still flags a few records as stale or incomplete (on the day this was written, 7 of 24). That is the check doing its job, not a reason to stop checking.
+
+One blind spot we hit: our first version called a record fresh if it had been updated within the last two hours. A session could write the record, keep working for another hour and a half, and still pass. Compare timestamps exactly: the record must be newer than the last piece of work.
+
 ## What it costs
 
 A few minutes per key step. It is the cheapest insurance you will ever buy.
