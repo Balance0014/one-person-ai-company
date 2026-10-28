@@ -1,0 +1,11 @@
+{
+  "dispatch_file": "ops/DISPATCH.json",
+  "handoff_dir": "ops/handoff",
+  "expectations_file": "ops/EXPECTATIONS.json",
+  "delivery_log": "ops/deliveries.jsonl",
+  "rules_file": "ops/RULES-REGISTRY.json",
+  "rules_root": "..",
+  "timezone_offset_hours": 0,
+  "handoff_stale_hours": 2,
+  "ack_hours": 24
+}

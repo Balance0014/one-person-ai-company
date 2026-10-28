@@ -1,0 +1,7 @@
+{
+  "_readme": "Everything that is supposed to arrive on a schedule. One row per delivery. The reconciler checks these against ops/deliveries.jsonl. Only add things that must arrive every time; 'send only if something is wrong' messages do not belong here.",
+  "expectations": [
+    {"id": "morning-brief", "name": "Morning brief", "schedule": "daily 09:00", "grace_min": 40},
+    {"id": "weekly-report", "name": "Weekly report", "schedule": "weekly mon 17:00", "grace_min": 60}
+  ]
+}

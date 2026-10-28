@@ -1,0 +1,4 @@
+{
+  "_readme": "Every task lives here, not in chat. Use scripts/dispatch.py to add, ack, close, and list. Status: new -> acked -> done | rejected.",
+  "items": []
+}

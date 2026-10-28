@@ -1,0 +1,8 @@
+{
+  "rules": [
+    {"id": "R-01", "rule": "A task cannot close without the five-item definition of done", "tier": "gate", "enforced_by": "scripts/dispatch.py", "marker": "DONE_FIELDS"},
+    {"id": "R-03", "rule": "Every workstream keeps a handoff record with all seven sections", "tier": "gate", "enforced_by": "scripts/handoff_check.py", "marker": "SECTIONS"},
+    {"id": "R-06", "rule": "Posts with broken links never ship", "tier": "gate", "enforced_by": "scripts/link_gate.py", "marker": "def check_links"},
+    {"id": "R-05", "rule": "At 90% of the weekly quota, stop starting changes", "tier": "advisory"}
+  ]
+}
