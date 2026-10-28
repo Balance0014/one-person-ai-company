@@ -84,7 +84,7 @@ python3 ../scripts/rules_check.py
 
 ## 用到你自己的仓库
 
-**作为 agent 技能**（Claude Code 等能读 `SKILL.md` 的 agent）：
+**作为 agent 技能**（Claude Code 等能读 `SKILL.md` 的 agent；需要 Node.js 22.20 或更新版本）：
 
 ```bash
 npx skills add https://github.com/Balance0014/one-person-ai-company

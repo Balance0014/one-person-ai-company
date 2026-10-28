@@ -94,7 +94,7 @@ The example data is built to fail in instructive ways.
 
 ## Use it in your own repo
 
-**As an agent skill** (Claude Code and other agents that read `SKILL.md`):
+**As an agent skill** (Claude Code and other agents that read `SKILL.md`; needs Node.js 22.20 or newer):
 
 ```bash
 npx skills add https://github.com/Balance0014/one-person-ai-company
