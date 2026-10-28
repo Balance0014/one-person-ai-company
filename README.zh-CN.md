@@ -113,6 +113,11 @@ python3 scripts/rules_check.py
 | `reconcile.py` | 每项定时产出有没有按时到，以发送方记下的为准 | 0 |
 | `rules_check.py` | 标成机器挡或定时查的规矩，执行脚本还在不在、里面还有没有你选的标记字符串 | 0 |
 
+## 从这套方法里拆出来的两个工具
+
+- [**claim-check**](https://github.com/Balance0014/claim-check):[第 5 章](playbook/zh-CN/05-definition-of-done.md)的 Claude Code 钩子版。最后一次改动之后什么都没跑,AI 就不能说「修好了」。
+- [**when-to-clear**](https://github.com/Balance0014/when-to-clear):对应[第 3 章](playbook/zh-CN/03-handoff-records.md)和[第 6 章](playbook/zh-CN/06-quota-budget.md)。看清额度有多少花在重读长对话上,并写好交接便条,让你放心换新会话。
+
 ## 局限
 
 - 方法就是我在用的那套。脚本是重新写的干净版，因为我自己在用的那套绑着我的服务器和账号，所以这里故意做得很小。

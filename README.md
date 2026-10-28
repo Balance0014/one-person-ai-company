@@ -120,6 +120,11 @@ Each one exits 1 when something is missing, overdue, or broken (a late delivery 
 
 All paths come from `ops.config.json`, so nothing's hard-coded. The tests check both directions (good input passes, bad input fails): `python3 -m unittest discover tests`.
 
+## Two tools that came out of this
+
+- [**claim-check**](https://github.com/Balance0014/claim-check): a Claude Code hook for [chapter 5](playbook/05-definition-of-done.md). Your agent can't say "fixed" until something has run after its last edit.
+- [**when-to-clear**](https://github.com/Balance0014/when-to-clear): for [chapter 3](playbook/03-handoff-records.md) and [chapter 6](playbook/06-quota-budget.md). It shows how much of your usage goes to re-reading long conversations, and writes the handoff note so you can start fresh.
+
 ## Limits
 
 - The method is the one I use. The scripts are a clean rewrite, because my production versions are tied to my own servers and accounts, so these are deliberately small.
