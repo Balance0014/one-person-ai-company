@@ -121,8 +121,8 @@ All paths come from `ops.config.json`, so nothing's hard-coded. The tests check 
 
 ## Two tools that came out of this
 
-- [**claim-check**](https://github.com/Balance0014/claim-check): a Claude Code hook for [chapter 5](playbook/05-definition-of-done.md). Your agent can't say "fixed" until something has run after its last edit.
-- [**when-to-clear**](https://github.com/Balance0014/when-to-clear): for [chapter 3](playbook/03-handoff-records.md) and [chapter 6](playbook/06-quota-budget.md). It shows how much of your usage goes to re-reading long conversations, and writes the handoff note so you can start fresh.
+- [**claim-check**](https://github.com/Balance0014/claude-code-claim-check): a Claude Code hook for [chapter 5](playbook/05-definition-of-done.md). Your agent can't say "fixed" until something has run after its last edit.
+- [**when-to-clear**](https://github.com/Balance0014/claude-code-when-to-clear): for [chapter 3](playbook/03-handoff-records.md) and [chapter 6](playbook/06-quota-budget.md). It shows how much of your usage goes to re-reading long conversations, and writes the handoff note so you can start fresh.
 
 ## Limits
 

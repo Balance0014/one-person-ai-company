@@ -115,8 +115,8 @@ python3 scripts/rules_check.py
 
 ## 从这套方法里拆出来的两个工具
 
-- [**claim-check**](https://github.com/Balance0014/claim-check):[第 5 章](playbook/zh-CN/05-definition-of-done.md)的 Claude Code 钩子版。最后一次改动之后什么都没跑,AI 就不能说「修好了」。
-- [**when-to-clear**](https://github.com/Balance0014/when-to-clear):对应[第 3 章](playbook/zh-CN/03-handoff-records.md)和[第 6 章](playbook/zh-CN/06-quota-budget.md)。看清额度有多少花在重读长对话上,并写好交接便条,让你放心换新会话。
+- [**claim-check**](https://github.com/Balance0014/claude-code-claim-check):[第 5 章](playbook/zh-CN/05-definition-of-done.md)的 Claude Code 钩子版。最后一次改动之后什么都没跑,AI 就不能说「修好了」。
+- [**when-to-clear**](https://github.com/Balance0014/claude-code-when-to-clear):对应[第 3 章](playbook/zh-CN/03-handoff-records.md)和[第 6 章](playbook/zh-CN/06-quota-budget.md)。看清额度有多少花在重读长对话上,并写好交接便条,让你放心换新会话。
 
 ## 局限
 
