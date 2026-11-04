@@ -4,7 +4,7 @@
 
 **Eight lessons from running a one-person company on 18 Claude Code sessions and about 20 scheduled AI jobs. Each one came from something that broke.**
 
-I run a one-person company. As of October 28, 2026, the snapshot this repo documents, my agents were 18 long-running Claude Code sessions (a coordinating session I call HQ, four leads, and their projects) and about 20 scheduled jobs, each with its own prompt. They wrote crypto and AI research briefs, did data and product research, and built and monitored [GapMine](https://gapmine.com), a product I'm working on. Most of their output landed in a group chat I read every morning.
+I run a one-person company. On October 28, 2026, the date of the snapshot this repo documents, my agents were 18 long-running Claude Code sessions (one coordinating session I call HQ, four lead sessions that each run an area, and one session per project under them) and about 20 scheduled jobs, each with its own prompt. They wrote crypto and AI research briefs, did data and product research, and built and monitored [GapMine](https://gapmine.com), a product I'm working on. Most of their output landed in a group chat I read every morning.
 
 This repo is the setup I ended up with: how the agents are organized, how work survives a cleared session, how I know what actually shipped, and which rules a machine enforces. It's eight short chapters, templates, four Python checks with no dependencies, and an agent skill that helps you set it up in your repo.
 
